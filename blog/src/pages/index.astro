@@ -1,6 +1,6 @@
 ---
 import Layout from '../components/Layout.astro'
-const allPosts = await Astro.glob('../pages/posts/*.md');
+const allPosts = await Astro.glob('../pages/posts/*.mdx');
 const sorted = allPosts.sort((a, b) => {const aDate = new Date(a.frontmatter.pubDate);
 	const bDate = new Date(b.frontmatter.pubDate);
 	return aDate.getTime() - bDate.getTime();});
