@@ -4,7 +4,11 @@ const allPosts = await Astro.glob('../pages/posts/*.mdx');
 const sorted = allPosts.sort((a, b) => {const aDate = new Date(a.frontmatter.pubDate);
 	const bDate = new Date(b.frontmatter.pubDate);
 	return aDate.getTime() - bDate.getTime();});
+import{ emojiparser } from "../components/Emoji.js";
+import { Image } from 'astro:assets';
 ---
 <Layout title="index" desc="Hellow!!">
-   {sorted.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+   {sorted.map((post) => <li><svg>
+      <use xlink:href={emojiparser(post.emoji)}></use>
+    </svg> <a href={post.url}>{post.frontmatter.title}</a></li>)}
 </Layout>

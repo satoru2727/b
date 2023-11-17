@@ -7,5 +7,8 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), partytown(), mdx()]
+  integrations: [tailwind(), sitemap(), partytown(), mdx()],
+    image: {
+    domains: ["twemoji.maxcdn.com"]
+  }
 });
