@@ -7,9 +7,13 @@ const sorted = allPosts.sort((a, b) => {const aDate = new Date(a.frontmatter.pub
 import { emojiparser } from "../components/Emoji.js";
 import { Image } from 'astro:assets';
 import Blogcard from '../components/Blogcard.astro';
+const postr = sorted.slice(0,5);
 ---
 <Layout title="index" desc="Hellow!!">
-<ul class="list-none">
-   {sorted.map((post) => <Blogcard path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} pubdate={post.frontmatter.pubDate} />)
+<div class="mx-auto w-3/4">
+<ul class="list-none ">
+   {postr.map((post) => <Blogcard path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} pubdate={post.frontmatter.pubDate} />)}
 </ul>
+<a href="/1">記事一覧</a>
+</div>
 </Layout>
