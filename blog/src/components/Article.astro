@@ -13,7 +13,9 @@ h1 {border-bottom: solid 2px orange;
 <img src={emojiparser(frontmatter.emoji)} class="mx-auto h-32">
 <p class="text-3xl font-semibold" m-2>{frontmatter.title}</p>
 <p class="text-slate-400 mb-2">{frontmatter.pubDate}</p>
-<artcle class="bg-white prose">
+<div class="bg-white">
+<artcle class="prose">
 <slot />
 </article>
+</div>
 </Layout>
