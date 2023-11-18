@@ -10,5 +10,6 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), partytown(), mdx()],
     image: {
     domains: ["twemoji.maxcdn.com"]
-  }
+  },
+	site: 'https://book-backpacker.com'
 });
