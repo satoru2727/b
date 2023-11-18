@@ -1,12 +1,10 @@
 ---
 const { path, blogtitle, date, emojidata} = Astro.props;
 ---
-<li class="flex flex-row m-2.5">
-<div class="h-[52px]>
+<li class="flex flex-row m-2.5 h-[52px]">
 <img src={emojidata} alt="" class="p-2 h-full bg-white rounded-xl">
 <div class="ml-2.5 my-auto mx-auto">
 <a href={path} class="text-3xl font-semibold">{blogtitle}</a><br>
 <p　class="text-slate-500">{date}</p>
-</div>
 </div>
 </li>
