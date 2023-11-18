@@ -12,7 +12,7 @@ const postr = sorted.slice(0,5);
 <Layout title="index" desc="Hellow!!">
 <div class="mx-auto max-w-3xl">
 <ul class="list-none">
-   {postr.map((post) => <Blogcard path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} pubdate={post.frontmatter.pubDate} />)}
+   {postr.map((post) => <Blogcard date={post.pubDate} path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} pubdate={post.frontmatter.pubDate} />)}
 </ul>
 <a href="/1">記事一覧</a>
 </div>
