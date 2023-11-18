@@ -10,7 +10,7 @@ import Blogcard from '../components/Blogcard.astro';
 const postr = sorted.slice(0,5);
 ---
 <Layout title="index" desc="Hellow!!">
-<div class="mx-auto max-w-3xl">
+<div>
 <ul class="list-none">
    {postr.map((post) => <Blogcard date={post.pubDate} path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} pubdate={post.frontmatter.pubDate} />)}
 </ul>

@@ -3,17 +3,16 @@ import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 const t = frontmatter.title;
 const d = frontmatter.desc;
-import { emojiparser } from "./Emoji.js"
+import { emojiparser } from "./Emoji.js";
 ---
 <Layout title={t} desc={d}>
 <style>
 h1 {border-bottom: solid 2px orange;
 }
-</style>
-<div class="mx-auto max-w-3xl"> 
+</style> 
 <img src={emojiparser(frontmatter.emoji)} class="mx-auto h-32">
-<p class="text-3xl font-semibold">{frontmatter.title}</p>
-<p class="text-slate-400">{frontmatter.date}</p>
+<p class="text-3xl font-semibold" m-2>{frontmatter.title}</p>
+<p class="text-slate-400 mb-2">{frontmatter.pubDate}</p>
 <div class="bg-white">
 <slot />
 </div>
