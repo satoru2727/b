@@ -1,5 +1,6 @@
 ---
 const { title, desc } = Astro.props;
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 ---
 <!DOCTYPE html>
 <html>
@@ -8,12 +9,19 @@ const { title, desc } = Astro.props;
 	<title>{title}</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="{desc}" name="description">
+	<meta name="robots" content="index, follow">
+  <GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap">
+    </GoogleFontsOptimizer>
+<style>
+.font-Noto{
+font-family: 'Noto Sans JP', sans-serif;}
+</style>
 </head>
 <body>
 	<header class="w-full">
 		<a class="text-3xl" href="/">Book Backpacker</a>
 	</header>
-<div class="bg-slate-100">	<main class="mx-auto max-w-4xl">
+<div class="bg-slate-100">	<main class="mx-auto max-w-4xl font-Noto">
 		<slot />
 	</main>
 </div>
