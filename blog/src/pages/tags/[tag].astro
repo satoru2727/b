@@ -20,6 +20,6 @@ import { emojiparser } from "../../components/Emoji.js";
 <Layout pageTitle={tag}>
   <p>{tag}のタグが付いた記事</p>
 <ul>
-{filteredPosts.map((post) => <Blogcard tag={tag} blogtitle={post.frontmatter.title} path={post.url} date={post.frontmatter.pubDate} emoji={emojiparser(post.frontmatter.emoji)} />)}
+{filteredPosts.map((post) => <Blogcard tag={tag} blogtitle={post.frontmatter.title} path={post.url} date={post.frontmatter.pubDate} emojidata={emojiparser(post.frontmatter.emoji)} />)}
   </ul>
 </Layout>

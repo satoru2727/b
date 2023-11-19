@@ -8,7 +8,9 @@ const day = tt.getDate().toString().padStart(2, '0');
 const dateText = year + '年' + month + '月' + day + '日';
 ---
 <li class="flex flex-row my-2.5 h-fit">
+<a href={path}>
 <img src={emojidata} alt="" class="mt-1.5 p-2.5 h-full bg-white rounded-xl max-w-[100px]" href={path} width=330 height=330>
+</a>
 <div class="ml-2.5 my-auto mx-auto">
 <a href={path} class="text-3xl font-semibold">{blogtitle}</a><br>
 <a href="/tags/{tag}" class="text-white w-fit bg-sky-700">{tag}</a>　<a　class="text-slate-500" href={path}>{dateText}</a>
