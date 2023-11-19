@@ -1,0 +1,39 @@
+---
+layout: ../../components/Article.astro
+title: Astro+Tailwindcssで、マークダウンが適用されなかった問題を@tailwindcss/typographyで解決
+pubDate: 2023-11-19
+desc: tailwindcssで全ての要素がリセットされていた
+emoji: 🙀
+tag: ["tech"]
+---
+##　問題:マークダウンで書いた記事にh1,h2,h3....が適用されなかった
+Astro+Tailwindcssで作っていたブログで、マークダウンの「# a」も「## a」も同じ無装飾の文字に表示された。
+## 原因:TailwindcssのPreflightでスタイルがリセットされていた
+Tailwindcssではデフォルトで、全ての見出しのスタイルをリセットする。
+```
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+```
+これにより見出しが全部同じ表示になってしまっていた。
+## 解決策
+@tailwindcss/typographyを導入することで解決
+https://tailwindcss.com/docs/typography-plugin
+"prose"クラスを指定することでデフォルトの見出しのスタイルを適用できる。
+```
+<div class="prose">
+<!-- 見出しにスタイルが適用される -->
+<h1>見出し</h1>
+<h2>見出し</h2>
+</div>
+<!-- 見出しがスタイルに適用されない -->
+<h1>見出し</h1>
+<h2>見出し</h2>
+```
+また、prose-smなどでサイズ指定もできる。

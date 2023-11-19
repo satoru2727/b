@@ -1,11 +1,16 @@
 ---
-const { path, blogtitle, date, emojidata} = Astro.props;
-const tt = date;
+const { path, blogtitle, date, emojidata ,tag} = Astro.props;
+const tt = new Date(date);
+const year = tt.getFullYear().toString().padStart(4, '0');
+const month = (tt.getMonth() + 1).toString().padStart(2, '0');
+const day = tt.getDate().toString().padStart(2, '0');
+
+const dateText = year + '年' + month + '月' + day + '日';
 ---
 <li class="flex flex-row m-2.5 h-fit">
-<img src={emojidata} alt="" class="mt-1.5 p-2.5 h-full bg-white rounded-xl max-w-[30%]" href={path}>
+<img src={emojidata} alt="" class="mt-1.5 p-2.5 h-full bg-white rounded-xl max-w-[30%]" href={path} width=330 height=330>
 <div class="ml-2.5 my-auto mx-auto">
 <a href={path} class="text-3xl font-semibold">{blogtitle}</a><br>
-<a　class="text-slate-500" href={path}>{tt}</a>
+<a href="/{tag}" class="text-white w-fit bg-sky-700">{tag}</a>　<a　class="text-slate-500" href={path}>{dateText}</a>
 </div>
 </li>
