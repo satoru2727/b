@@ -5,6 +5,6 @@ const { path, blogtitle, date, emojidata} = Astro.props;
 <img src={emojidata} alt="" class="p-2.5 h-full bg-white rounded-xl" href={path}>
 <div class="ml-2.5 my-auto mx-auto">
 <a href={path} class="text-3xl font-semibold">{blogtitle}</a>
-<a　class="text-slate-500" href={path}>{date.substr( 0, 10 )}</a>
+<a　class="text-slate-500" href={path}>{date}</a>
 </div>
 </li>
