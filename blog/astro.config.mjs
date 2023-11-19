@@ -7,7 +7,6 @@ import mdx from "@astrojs/mdx";
 import compress from "astro-compress";
 import remarkLinkCard from "remark-link-card";
 import critters from "astro-critters";
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap(), partytown(), mdx(), compress(), critters()],
@@ -20,6 +19,7 @@ export default defineConfig({
   site: 'https://book-backpacker.com',
   markdown: {
     // Applied to .md and .mdx files
-    remarkPlugins: [remarkToc, remarkLinkCard]
+    remarkPlugins: [remarkToc, remarkLinkCard],
+	  prefetch: true
   }
 });
