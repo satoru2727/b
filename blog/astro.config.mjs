@@ -9,7 +9,11 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [tailwind(), sitemap(), partytown(), mdx()],
     image: {
-    domains: ["twemoji.maxcdn.com"]
-  },
+    domains: ["twemoji.maxcdn.com"],
+	       remotePatterns: [{
+      
+      hostname: 'cdn.jsdelivr.net/'
+  }]
+    },		       
 	site: 'https://book-backpacker.com'
 });
