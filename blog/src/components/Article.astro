@@ -9,6 +9,23 @@ const year = date.getFullYear().toString().padStart(4, '0');
 const month = (date.getMonth() + 1).toString().padStart(2, '0');
 const day = date.getDate().toString().padStart(2, '0');
 const dateText = year + '年' + month + '月' + day + '日';
+const allPosts = await Astro.glob('../pages/posts/*.mdx');
+const sorted = allPosts.sort((a, b) => {const aDate = new Date(a.frontmatter.pubDate);
+		const bDate = new Date(b.frontmatter.pubDate);
+		return aDate.getTime() - bDate.getTime();});
+sorted.push({
+"url":"/",
+"frontmatter": {
+"title": "ホームに戻る",
+},
+});
+sorted.unshift({
+"url":"/",
+"frontmatter": {
+"title": "ホームに戻る",
+},
+});
+const current = sorted.findIndex((post) => (post.frontmatter.title == frontmatter.title));
 ---
 <Layout title={t} desc={d}>
 <style>
@@ -112,13 +129,58 @@ h2 {
     margin-bottom: 0.2rem;
     border-bottom: 3px solid #b2d5de;
 }
+.prev-next-link a {
+  border-bottom: 1px #ddd solid;
+  display: block;
+  text-decoration: none;
+  padding: 14px 40px;
+  color: #0bd;
+}
+.prev-next-link a:hover {
+  background-color: #f6f6f6;
+}
+.prev-next-link a:first-child {
+  border-top: 1px #ddd solid;
+}
+.prev-next-label {
+  font-size: .825rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+@media ( min-width: 600px) {
+  .prev-next-link {
+    display: flex;
+  }
+  .prev-next-link a {
+    flex: 1;
+  }
+  .prev-next-link a,
+  .prev-next-link a:first-child {
+    border: none;
+  }
+  .next-link {
+    text-align: right;
+  }
+}
 </style> 
 <img src={emojiparser(frontmatter.emoji)} class="mx-auto h-32 mt-5">
 <p class="text-3xl font-semibold" m-2>{frontmatter.title}</p>
 <p class="text-slate-400 mb-2">{dateText}</p>
-<div class="bg-white dark:bg-gray-500 text-white">
+<div class="bg-white dark:bg-gray-500 !text-white">
 <artcle class="prose">
 <slot />
 </article>
+  <a class="prev-link" href="sorted[current -  1].url">
+    <p class="prev-next-label">前の記事</p>
+    <p>
+   {sorted[current - 1].frontmatter.title}
+ </p>
+</a>
+<a class="next-link" href="sorted[current + 1].url">
+    <p class="prev-next-label">次の記事</p>
+    <p>
+  {sorted[current + 1].frontmatter.title} 
+ </p>
+</a>
 </div>
 </Layout>
