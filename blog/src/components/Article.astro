@@ -111,12 +111,14 @@ h2 {
     padding: 1rem 0rem;
     margin-bottom: 0.2rem;
     border-bottom: 3px solid #b2d5de;
+   color:white !important;
 }
 </style>
+<img src={emojiparser(frontmatter.emoji)} class="mx-auto h-32 mt-2.5">
 <p class="text-3xl font-semibold m-2">{frontmatter.title}</p>
 <p class="text-slate-400 mb-2">{dateText}</p>
 <div class="bg-white dark:bg-gray-500">
-<artcle class="prose">
+<article class="prose">
 <div class="!text-white">
 <slot />
 </div>
