@@ -6,11 +6,10 @@ const month = (tt.getMonth() + 1).toString().padStart(2, "0");
 const day = tt.getDate().toString().padStart(2, "0");
 
 const dateText = year + "年" + month + "月" + day + "日";
-const tagp = '/tags{tag}';
+const tagp = '/tags/${tag}';
 ---
 
-<li class="my-2.5 flex h-fit flex-row">
-<div class="max-w-3xl"> 
+<li class="my-2.5 flex h-fit flex-row max-w-3xl"> 
  <a href={path}>
     <img
       src={emojidata}
@@ -26,6 +25,5 @@ const tagp = '/tags{tag}';
     <a href={tagp} class="w-fit bg-sky-700 text-white">{tag}</a>
     <a　class="text-slate-500" href={path}>{dateText}</a　class="text-slate-500"
     >
-  </div>
 </div>
 </li>
