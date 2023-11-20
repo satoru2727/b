@@ -14,11 +14,15 @@ const dateText = year + "年" + month + "月" + day + "日";
 <Layout title={t} desc={d}>
   <img src={emojiparser(frontmatter.emoji)} class="mx-auto mt-4.5 h-32" />
   <p class="m-2 text-3xl font-semibold">{frontmatter.title}</p>
+<div class="flex justify-between">
   <p class="mb-2 text-textcolor dark:text-[#DCDDE]">{dateText}</p>
-  <div class="bg-[#fffff9] dark:bg-[#36393F] p-0 m-0">
-    <article class="prose prose-p:font-Noto prose-headings:text-textcolor prose-p:text-textcolor prose-p:dark:text-[#DCDDDE] prose-headings:dark:text[#DCDDDE]">
+<div>
+<a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエン
+トリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+</div></div> 
+ <div class="bg-[#fffff9] dark:bg-[#36393F] p-0 m-0">
+    <article class="prose prose-p:font-Noto prose-headings:text-textcolor prose-p:text-textcolor prose-p:dark:text-[#DCDDDE] prose-headings:dark:text-[#DCDDDE]">
         <slot />
     </article>
   </div>
-<a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 </Layout>
