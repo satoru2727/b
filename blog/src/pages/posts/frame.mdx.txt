@@ -1,0 +1,35 @@
+—-
+layout: ../../components/Article.astro
+title: 当ブログを支える技術:Astro
+pubDate: 2023-11-120
+desc: 当ブログをさせるAstroなどの技術について紹介
+emoji: 🧑‍💻
+tag: ["tech"]
+slug: frame
+
+—-
+# 当ブログを支える技術
+## ToC
+## Astro
+フレームワーク選定においては
+- パフォーマンスを重視
+- 静的なコンテンツがメイン
+などの理由からSSGできるGatsbyとAstroが候補でした。  
+　Gatsbyでの開発体験の悪さが気になったので最終的にはAstroを選びました。GatsbyはリソースへのアクセスをすべてGaraphQLを通して行わないといけないのが直感的でなく、学習コストが高くなってしまう。大規模なサイトではGaraphQLの恩恵を受けることができるのかもしれませんが、個人ブログ程度だとあまり恩恵を受けることができないように感じます。  
+　それに対しAstroではコンテンツ重視の思想のもとファイルベースルーティング、mdxのサポートなどブログを作る上ではとてもやりやすかったです。逆に、CMSとの連携などの点ではGatsbyの方がやりやすい印象。
+### Partytown
+@astrojs/partytownは、サードパーティスクリプトによるパフォーマンス低下を抑えてくれる公式インテグレーションです。　　
+具体的な話は以下に詳しいです。
+
+https://zenn.dev/stomita/articles/2c16a53223f3c9
+
+## Tailwindcss
+当サイトのcssはTailwindcssを利用しています。Tailwindcssでの開発はとてもスムーズで、尚且つある程度の柔軟性も持ち合わせています。CSSフレームワークだとBootstrapなどが有名ですが、柔軟性の点でTailwindcssの方が優れているように感じました。  
+<br>
+Tailwindcssと合わせて@tailwindcss/typographyを利用しています。  
+
+https://tailwindcss.com/docs/typography-plugin
+
+## Cloudflare Pages
+デプロイ先としてCloudflare Pagesを利用。  
+初めはNetlifyを検討していましたが、[日本からだとパフォーマンスが落ちるという話](https://blog.anatoo.jp/2020-08-03)があり、最終的には　Cloudflare Pagesを使用。
