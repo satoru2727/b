@@ -8,9 +8,9 @@ tag: ["tech"]
 slug: mdstyle
 ---
 ## 問題:マークダウンで書いた記事にh1,h2,h3....が適用されなかった
-Astro+Tailwindcssで作っていたブログで、マークダウンの「# a」も「## a」も同じ無装飾の文字に表示された。
-## 原因:TailwindcssのPreflightでスタイルがリセットされていた
-Tailwindcssではデフォルトで、全ての見出しのスタイルをリセットする。
+Astro+Tailwindcssで作っていたブログで、マークダウンの「# a」も「## a」も同じ無装飾の文字に表示された。  
+## 原因:TailwindcssのPreflightでスタイルがリセットされていた  
+Tailwindcssではデフォルトで、全ての見出しのスタイルをリセットする。  
 ```html
 h1,
 h2,
@@ -22,11 +22,11 @@ h6 {
   font-weight: inherit;
 }
 ```
-これにより見出しが全部同じ表示になってしまっていた。
+これにより見出しが全部同じ表示になってしまっていた。  
 ## 解決策
-@tailwindcss/typographyを導入することで解決
-https://tailwindcss.com/docs/typography-plugin
-"prose"クラスを指定することでデフォルトの見出しのスタイルを適用できる。
+@tailwindcss/typographyを導入することで解決  
+https://tailwindcss.com/docs/typography-plugin  
+"prose"クラスを指定することでデフォルトの見出しのスタイルを適用できる。  
 ```html
 <div class="prose">
 <!-- 見出しにスタイルが適用される -->
@@ -37,4 +37,10 @@ https://tailwindcss.com/docs/typography-plugin
 <h1>見出し</h1>
 <h2>見出し</h2>
 ```
-また、prose-smなどでサイズ指定もできる。
+また、prose-xlなどでサイズ指定もできる。  
+``` html
+<article class="prose prose-xl">
+  {{ markdown }}
+</article>
+```
+

@@ -1,18 +1,29 @@
 ---
-const { path, blogtitle, date, emojidata ,tag} = Astro.props;
+const { path, blogtitle, date, emojidata, tag } = Astro.props;
 const tt = new Date(date);
-const year = tt.getFullYear().toString().padStart(4, '0');
-const month = (tt.getMonth() + 1).toString().padStart(2, '0');
-const day = tt.getDate().toString().padStart(2, '0');
+const year = tt.getFullYear().toString().padStart(4, "0");
+const month = (tt.getMonth() + 1).toString().padStart(2, "0");
+const day = tt.getDate().toString().padStart(2, "0");
 
-const dateText = year + '年' + month + '月' + day + '日';
+const dateText = year + "年" + month + "月" + day + "日";
+const tagp = '/tags{tag}';
 ---
-<li class="flex flex-row my-2.5 h-fit">
-<a href={path}>
-<img src={emojidata} alt="" class="mt-1.5 p-2.5 h-full bg-white rounded-xl max-w-[100px]" href={path} width=330 height=330>
-</a>
-<div class="ml-2.5 my-auto mx-auto">
-<a href={path} class="text-3xl font-semibold">{blogtitle}</a><br>
-<a href="/tags/{tag}" class="text-white w-fit bg-sky-700">{tag}</a>　<a　class="text-slate-500" href={path}>{dateText}</a>
-</div>
+
+<li class="my-2.5 flex h-fit flex-row">
+  <a href={path}>
+    <img
+      src={emojidata}
+      alt=""
+      class="mt-1.5 h-full max-w-[100px] rounded-xl bg-white p-2.5"
+      href={path}
+      width="330"
+      height="330"
+    />
+  </a>
+  <div class="mx-auto my-auto ml-2.5">
+    <a href={path} class="text-3xl font-semibold truncate">{blogtitle}</a><br />
+    <a href={tagp} class="w-fit bg-sky-700 text-white">{tag}</a>
+    <a　class="text-slate-500" href={path}>{dateText}</a　class="text-slate-500"
+    >
+  </div>
 </li>

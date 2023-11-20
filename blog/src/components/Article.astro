@@ -5,136 +5,133 @@ const t = frontmatter.title;
 const d = frontmatter.desc;
 import { emojiparser } from "./Emoji.js";
 const date = new Date(frontmatter.pubDate);
-const year = date.getFullYear().toString().padStart(4, '0');
-const month = (date.getMonth() + 1).toString().padStart(2, '0');
-const day = date.getDate().toString().padStart(2, '0');
-const dateText = year + '年' + month + '月' + day + '日';
+const year = date.getFullYear().toString().padStart(4, "0");
+const month = (date.getMonth() + 1).toString().padStart(2, "0");
+const day = date.getDate().toString().padStart(2, "0");
+const dateText = year + "年" + month + "月" + day + "日";
 ---
+
 <Layout title={t} desc={d}>
-<style>
-h1 {border-bottom: solid 2px orange;
-}
-.rlc-container {
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  align-items: streatch;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  padding: 0.25rem;
-  text-decoration: none;
-  border-color: black;
-  border: 1px solid;
-  border-color: gray !important;
-  border-radius: 0.5rem;
-  transition: background 200ms ease-in-out 0s, box-shadow 200ms ease-in-out 0s;
-}
+  <style>
+    h1 {
+      border-bottom: solid 2px orange;
+    }
+    .rlc-container {
+      display: grid;
+      overflow: hidden;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      align-items: streatch;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0.25rem;
+      text-decoration: none;
+      border-color: black;
+      border: 1px solid;
+      border-color: gray !important;
+      border-radius: 0.5rem;
+      transition:
+        background 200ms ease-in-out 0s,
+        box-shadow 200ms ease-in-out 0s;
+    }
 
-.rlc-container:link,
-.rlc-container:visited {
-  color: #333;
-}
+    .rlc-container:link,
+    .rlc-container:visited {
+      color: #333;
+    }
 
-.rlc-container:hover {
-  background-color: rgba(80, 80, 80, 0.1);
-  box-shadow: 0 4px 5px 2px rgba(80, 80, 80, 0.2);
-}
+    .rlc-container:hover {
+      background-color: rgba(80, 80, 80, 0.1);
+      box-shadow: 0 4px 5px 2px rgba(80, 80, 80, 0.2);
+    }
 
-.rlc-info {
-  grid-area: 1 / 1 / 2 / 2;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  justify-content: space-between;
-  padding: 0.5rem;
-  text-align: left;
-}
+    .rlc-info {
+      grid-area: 1 / 1 / 2 / 2;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      justify-content: space-between;
+      padding: 0.5rem;
+      text-align: left;
+    }
 
-.rlc-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1.25rem;
-  white-space: nowrap;
-}
+    .rlc-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1.25rem;
+      white-space: nowrap;
+    }
 
-.rlc-description {
-  overflow: hidden;
-  font-size: 0.875rem;
-  line-height: 1rem;
-  height: 2rem;
-}
+    .rlc-description {
+      overflow: hidden;
+      font-size: 0.875rem;
+      line-height: 1rem;
+      height: 2rem;
+    }
 
-.rlc-url-container {
-  display: flex;
-  align-items: bottom;
-}
+    .rlc-url-container {
+      display: flex;
+      align-items: bottom;
+    }
 
-.rlc-favicon {
-  display: flex;
-  flex-direction: column;
-  align-items: bottom;
-  margin-right: 4px;
-  width: 16px;
-  height: 16px;
-}
+    .rlc-favicon {
+      display: flex;
+      flex-direction: column;
+      align-items: bottom;
+      margin-right: 4px;
+      width: 16px;
+      height: 16px;
+    }
 
-.rlc-url {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 1rem;
-}
+    .rlc-url {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 1rem;
+    }
 
-.rlc-image-container {
-  display: grid;
-  grid-area: 1 / 2 / 2 / 3;
-  align-items: center;
-  height: 8rem;
-}
+    .rlc-image-container {
+      display: grid;
+      grid-area: 1 / 2 / 2 / 3;
+      align-items: center;
+      height: 8rem;
+    }
 
-.rlc-image {
-  object-fit: contain;
-  margin: auto;
-  overflow: hidden;
-  width: 100%;
-  max-width: 100%;
-  min-height: 8rem;
-  max-height: 8rem;
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-h2 {
-    padding: 1rem 0rem;
-    margin-bottom: 0.2rem;
-    border-bottom: 3px solid #b2d5de;
-   color:white !important;
-}
-</style>
-<img src={emojiparser(frontmatter.emoji)} class="mx-auto h-32 mt-2.5">
-<p class="text-3xl font-semibold m-2">{frontmatter.title}</p>
-<p class="text-slate-400 mb-2">{dateText}</p>
-<div class="bg-white dark:bg-gray-500">
-<article class="prose">
-<div class="!text-white">
-<slot />
-</div>
-</article>
-</div>
-<!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_x"></a>
-<a class="a2a_button_hatena"></a>
-<a class="a2a_button_copy_link"></a>
-</div>
-<script type="text/partytown">
-var a2a_config = a2a_config || {};
-a2a_config.locale = "ja";
-</script>
-<script type="text/partytown" src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
+    .rlc-image {
+      object-fit: contain;
+      margin: auto;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      min-height: 8rem;
+      max-height: 8rem;
+      border-bottom-right-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+  </style>
+  <img src={emojiparser(frontmatter.emoji)} class="mx-auto mt-4.5 h-32" />
+  <p class="m-2 text-3xl font-semibold">{frontmatter.title}</p>
+  <p class="mb-2 text-slate-400">{dateText}</p>
+  <div class="bg-white dark:bg-gray-500">
+    <article class="prose prose-headings:underline prose-p:font-Noto prose-p:text-textcolor">
+        <slot />
+    </article>
+  </div>
+  <!-- AddToAny BEGIN -->
+  <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_x"></a>
+    <a class="a2a_button_hatena"></a>
+    <a class="a2a_button_copy_link"></a>
+  </div>
+  <script type="text/partytown">
+    var a2a_config = a2a_config || {};
+    a2a_config.locale = "ja";
+  </script>
+  <script type="text/partytown" src="https://static.addtoany.com/menu/page.js"
+  ></script>
+  <!-- AddToAny END -->
 </Layout>

@@ -1,19 +1,32 @@
 ---
-import Layout from '../components/Layout.astro'
-const allPosts = await Astro.glob('../pages/posts/*.mdx');
-const sorted = allPosts.sort((a, b) => {const aDate = new Date(a.frontmatter.pubDate);
-	const bDate = new Date(b.frontmatter.pubDate);
-	return aDate.getTime() - bDate.getTime();});
+import Layout from "../components/Layout.astro";
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+const sorted = allPosts.sort((a, b) => {
+  const aDate = new Date(a.frontmatter.pubDate);
+  const bDate = new Date(b.frontmatter.pubDate);
+  return aDate.getTime() - bDate.getTime();
+});
 import { emojiparser } from "../components/Emoji.js";
-import { Image } from 'astro:assets';
-import Blogcard from '../components/Blogcard.astro';
-const postr = sorted.slice(0,5);
+import { Image } from "astro:assets";
+import Blogcard from "../components/Blogcard.astro";
+const postr = sorted.slice(0, 5);
 ---
+
 <Layout title="index" desc="Hellow!!">
-<div>
-<ul class="list-none">
-   {postr.map((post) => <Blogcard tag={post.frontmatter.tag[0]} date={post.frontmatter.pubDate} path={post.url} blogtitle={post.frontmatter.title} emojidata={emojiparser(post.frontmatter.emoji)} />)}
-</ul>
-<a href="/1">記事一覧</a>
-</div>
+  <div>
+    <ul class="list-none">
+      {
+        postr.map((post) => (
+          <Blogcard
+            tag={post.frontmatter.tag[0]}
+            date={post.frontmatter.pubDate}
+            path={post.url}
+            blogtitle={post.frontmatter.title}
+            emojidata={emojiparser(post.frontmatter.emoji)}
+          />
+        ))
+      }
+    </ul>
+    <a href="/1 bg-sky-700">記事一覧</a>
+  </div>
 </Layout>

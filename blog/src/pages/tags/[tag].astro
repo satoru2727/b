@@ -1,25 +1,37 @@
 ---
-import Layout from '../../components/Layout.astro';
-import Blogcard from '../../components/Blogcard.astro';
+import Layout from "../../components/Layout.astro";
+import Blogcard from "../../components/Blogcard.astro";
 export async function getStaticPaths() {
-const allPosts = await Astro.glob('../posts/*.mdx');  
-return [
-    { params: { tag: "tech" } , props: {posts: allPosts}},
-    { params: { tag: "book" } , props: {posts: allPosts}},
-    { params: { tag: "travel" } , props: {posts: allPosts}},
-    { params: { tag: "other" } , props: {posts: allPosts}},
+  const allPosts = await Astro.glob("../posts/*.mdx");
+  return [
+    { params: { tag: "tech" }, props: { posts: allPosts } },
+    { params: { tag: "book" }, props: { posts: allPosts } },
+    { params: { tag: "travel" }, props: { posts: allPosts } },
+    { params: { tag: "other" }, props: { posts: allPosts } },
   ];
-
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const filteredPosts = posts.filter((post) => post.frontmatter.tag.includes(tag));
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tag.includes(tag),
+);
 import { emojiparser } from "../../components/Emoji.js";
 ---
+
 <Layout pageTitle={tag}>
   <p>{tag}のタグが付いた記事</p>
-<ul>
-{filteredPosts.map((post) => <Blogcard tag={tag} blogtitle={post.frontmatter.title} path={post.url} date={post.frontmatter.pubDate} emojidata={emojiparser(post.frontmatter.emoji)} />)}
+  <ul>
+    {
+      filteredPosts.map((post) => (
+        <Blogcard
+          tag={tag}
+          blogtitle={post.frontmatter.title}
+          path={post.url}
+          date={post.frontmatter.pubDate}
+          emojidata={emojiparser(post.frontmatter.emoji)}
+        />
+      ))
+    }
   </ul>
 </Layout>
