@@ -4,9 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import remarkToc from "remark-toc";
 import mdx from "@astrojs/mdx";
-import compress from "astro-compress";
 import remarkLinkCard from "remark-link-card";
 import critters from "astro-critters";
+import compress from "astro-compress";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -14,7 +14,8 @@ export default defineConfig({
     sitemap(),
     partytown(),
     mdx(),
-    compress(),
+    compress(Exclude: [
+				"global.css"]),
     critters(),
   ],
   image: {
