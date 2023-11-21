@@ -14,8 +14,7 @@ export default defineConfig({
     sitemap(),
     partytown(),
     mdx(),
-    compress(Exclude: [
-				"global.css"]),
+    compress({Exclude:["global.css"]}),
     critters(),
   ],
   image: {
