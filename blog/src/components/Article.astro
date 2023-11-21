@@ -1,4 +1,5 @@
 ---
+import '../global.css';
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 const t = frontmatter.title;
@@ -9,7 +10,6 @@ const year = date.getFullYear().toString().padStart(4, "0");
 const month = (date.getMonth() + 1).toString().padStart(2, "0");
 const day = date.getDate().toString().padStart(2, "0");
 const dateText = year + "年" + month + "月" + day + "日";
-import '../global.css';
 ---
 
 <Layout title={t} desc={d}>
@@ -22,7 +22,7 @@ import '../global.css';
 トリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 </div></div> 
  <div class="bg-[#fffff9] dark:bg-[#36393F] p-0 m-0">
-    <article class="prose !text-textcolor prose-p:font-Noto prose-headings:text-textcolor prose-p:text-textcolor prose-p:dark:text-[#DCDDDE] prose-headings:dark:text-[#DCDDDE] prose-a:text-sky-400 prose-a:dark:text-sky-4oo prose-ul:text-textcolor prose-ul:dark:text-[#DCDDDE] prose-li:text-textcolor prose-li:dark:text-[#DCDDDE]">
+    <article class="prose !text-textcolor prose-p:font-Noto prose-headings:text-textcolor prose-p:text-textcolor prose-p:dark:text-[#DCDDDE] prose-headings:dark:text-[#DCDDDE] prose-a:text-sky-400 prose-a:dark:text-sky-4oo prose-ul:text-textcolor prose-ul:dark:text-[#DCDDDE] prose-li:text-textcolor prose-li:dark:text-[#DCDDDE] w-[100%] max-w-3xl">
         <slot />
     </article>
   </div>
