@@ -8,7 +8,11 @@ tag: ["tech"]
 slug: mdstyle
 ---
 ## 問題:マークダウンで書いた記事にh1,h2,h3....が適用されなかった
-Astro+Tailwindcssで作っていたブログで、マークダウンの「# a」も「## a」も同じ無装飾の文字に表示された。  
+Astro+Tailwindcssで作っていたブログで、マークダウンの「# a」も「## a」も同じ無装飾の文字に表示された。   
+ブログの詳細については以下の記事をご覧ください。
+
+https://book-backpacker.com/posts/mdstyle/
+
 ## 原因:TailwindcssのPreflightでスタイルがリセットされていた  
 Tailwindcssではデフォルトで、全ての見出しのスタイルをリセットする。  
 ```html
