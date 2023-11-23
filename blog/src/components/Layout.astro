@@ -1,6 +1,12 @@
 ---
 const { title, desc } = Astro.props;
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: Book BackPacker,
+    url: Astro.url
+});
 ---
 
 <!doctype html>
@@ -15,14 +21,7 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
       url="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
     />
     </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "WebSite",
-  "name": "Book BackPacker",
-  "url": "https://book-backpacker.com",
-}
-</script>
+<script type="application/ld+json" set:html={schema}></script>
  <link rel="stylesheet" href="global.css" />
   </head>
   <body>
