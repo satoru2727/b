@@ -17,7 +17,6 @@ const schema = JSON.stringify({
     url: Astro.url,
     headline: frontmatter.title
 });
-const tagp = "/tags/" + frontmatter.tag;
 ---
 
 <!doctype html>
@@ -41,9 +40,7 @@ const tagp = "/tags/" + frontmatter.tag;
     </header>
     <div class="bg-slate-400">
       <main class="mx-auto max-w-4xl w-screen">
-
-
-<nav class="flex" aria-label="Breadcrumb">
+      <nav class="flex" aria-label="Breadcrumb">
   <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
     <li class="inline-flex items-center">
       <a href="#" class="inline-flex items-center text-sm font-medium text-black hover:text-blue-600 dark:hover:text-white">
@@ -58,27 +55,15 @@ const tagp = "/tags/" + frontmatter.tag;
         <svg class="rtl:rotate-180 w-3 h-3 text-black mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
         </svg>
-        <a href={tagp} class="ms-1 text-sm font-medium text-black hover:text-blue-600 md:ms-2 dark:hover:text-white">{frontmatter.tag[0]}</a>
-      </div>
-    </li>
-    <li aria-current="page">
-      <div class="flex items-center">
-        <svg class="rtl:rotate-180 w-3 h-3 text-black mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-        </svg>
-        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">{frontmatter.title}</span>
+        <a href={Astro.url} class="ms-1 text-sm font-medium text-black hover:text-blue-600 md:ms-2 dark:hover:text-white">{t}</a>
       </div>
     </li>
   </ol>
 </nav>
-
-  <img src={emojiparser(frontmatter.emoji)} class="mx-auto mt-4.5 h-32" />
   <p class="m-2 text-3xl font-semibold">{frontmatter.title}</p>
 <div class="flex justify-between">
   <p class="mb-2 text-textcolor dark:text-[#DCDDE]">{dateText}</p>
 <div>
-<a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエン
-トリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 </div></div> 
  <div class="bg-[#fffff9] dark:bg-[#36393F] p-0 m-0">
     <article class="prose !text-textcolor prose-p:font-Noto prose-headings:text-textcolor prose-p:text-textcolor prose-p:dark:text-[#DCDDDE] prose-headings:dark:text-[#DCDDDE] prose-a:text-sky-400 prose-a:dark:text-sky-4oo prose-ul:text-textcolor prose-ul:dark:text-[#DCDDDE] prose-li:text-textcolor prose-li:dark:text-[#DCDDDE] w-[100%] max-w-4xl">
