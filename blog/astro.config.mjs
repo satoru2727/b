@@ -7,6 +7,7 @@ import mdx from "@astrojs/mdx";
 import remarkLinkCard from "remark-link-card";
 import critters from "astro-critters";
 import compress from "astro-compress";
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -29,6 +30,7 @@ export default defineConfig({
   markdown: {
     // Applied to .md and .mdx files
     remarkPlugins: [remarkToc, remarkLinkCard],
+  rehypePlugins: [rehypeAccessibleEmojis],
     shikiConfig: {
       // Shikiの組み込みテーマから選択（または独自のテーマを追加）
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md

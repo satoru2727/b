@@ -9,19 +9,19 @@ const dateText = year + "年" + month + "月" + day + "日";
 const tagp = "/tags/" + tag;
 ---
 
-<li class="my-2.5 flex h-fit flex-row max-w-3xl"> 
+<li class="my-2.5 flex h-fit flex-row max-w-3xl w-max-[100%]"> 
  <a href={path}>
     <img
       src={emojidata}
       alt=""
-      class="mt-1.5 h-full max-w-[100px] rounded-xl bg-white p-2.5"
+      class="mt-1.5 h-full max-w-[100px] sm:max-w-[60px] rounded-xl bg-white p-2.5"
       href={path}
       width="330"
       height="330"
     />
   </a>
   <div class="mx-auto my-auto ml-2.5">
-    <a href={path} class="text-3xl font-semibold">{blogtitle}</a><br />
+    <a href={path} class="text-3xl sd:text-2xl font-semibold truncate">{blogtitle}</a><br />
     <a href={tagp} class="w-fit bg-sky-700 text-white">{tag}</a>
     <a　class="text-slate-500" href={path}>{dateText}</a　class="text-slate-500"
     >
