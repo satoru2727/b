@@ -4,7 +4,7 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
 const sorted = allPosts.sort((a, b) => {
   const aDate = new Date(a.frontmatter.pubDate);
   const bDate = new Date(b.frontmatter.pubDate);
-  return aDate.getTime() - bDate.getTime();
+  return bDate.getTime() - aDate.getTime();
 });
 import { emojiparser } from "../components/Emoji.js";
 import { Image } from "astro:assets";
