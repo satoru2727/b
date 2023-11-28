@@ -3,9 +3,9 @@ import Layout from "../components/Layout.astro";
 ---
 <Layout title="connect" desc="connect">
     <form class="max-w-xl dark:text-[#DCDDDE] text-textcolor w-full mx-auto" action="https://ssgform.com/s/qJQgcMqMHHOQ" method="post">
-  <label> お名前<br><input type="text" name="お名前" required="required" class="rounded-lg" /></label>
-  <label>メールアドレス<br><input type="email" name="メールアドレス" required="required" class="rounded-lg"i /></label>
-  <label>お問い合わせ内容<br><textarea name="お問い合わせ内容" required="required" class="rounded-lg"></textarea></label>
-   <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">送信する</button>
+  <label class="w-[75%] mx-auto"> お名前<br><input type="text" name="お名前" required="required" class="rounded-lg block" /></label>
+  <label class="w-[75%] mx-auto">メールアドレス<br><input type="email" name="メールアドレス" required="required" class="rounded-lg block" /></label>
+  <label class="w-[75%] mx-auto">お問い合わせ内容<br><textarea name="お問い合わせ内容" required="required" class="rounded-lg block"></textarea></label>
+   <button type="submit" class="bg-blue-500 mx-auto hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">送信する</button>
     </form>
    </Layout>
